@@ -5,6 +5,7 @@ import com.ecommerce.library.repository.CategoryRepository;
 import com.ecommerce.library.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,24 +28,27 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Optional<Category> findById(Long id) {
-        return repo.findById(id);
+    public Category findById(Long id) {
+        return repo.findById(id).get();
     }
 
     @Override
     public Category update(Category category) {
-        Category categoryUpdate = new Category();
-        categoryUpdate.setName(category.getName());
-        categoryUpdate.set_activated(category.is_activated());
-        categoryUpdate.set_deleted(category.is_deleted());
+        Category categoryUpdate = null;
+        try{
+            categoryUpdate = repo.findById(category.getId()).get();
+            categoryUpdate.setName(category.getName());
+            categoryUpdate.set_activated(category.is_activated());
+            categoryUpdate.set_deleted(category.is_deleted());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return repo.save(categoryUpdate);
     }
 
     @Override
     public void deleteById(Long id) {
-        Optional<Category> categoryOptional = repo.findById(id);
-        Category category = categoryOptional.get();
-
+        Category category = repo.findById(id).get();
         category.set_deleted(true);
         category.set_activated(false);
         repo.save(category);
@@ -52,9 +56,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void enabledById(Long id) {
-        Optional<Category> categoryOptional = repo.findById(id);
-        Category category = categoryOptional.get();
-
+        Category category = repo.findById(id).get();
         category.set_activated(true);
         category.set_deleted(false);
         repo.save(category);
