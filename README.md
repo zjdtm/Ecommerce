@@ -16,4 +16,17 @@
   이렇게 설정한 후 재실행을 해보았다 css랑 이미지 파일은 가져온 것을 확인 할 수 있었지만 아직도 에러 로그는 남아있는 상태이다
   조금더 검색을 해본 후 해결해 보도록 하겠다.
 
+# 3. Category 중복 데이터 예외 처리 에러
+  ![image](https://user-images.githubusercontent.com/35757620/209932319-d0d7642f-0fc9-427e-8c4f-ef01aae2f79e.png)
+  categoryServie.save(category) Category 데이터를 등록할 때 중복 에러가 발생 할 경우에 try-catch 문으로 에러를 잡는 코드를 작성하였지만
+  ![image](https://user-images.githubusercontent.com/35757620/209932482-d1b45537-d0f4-441f-beb9-a91f1f38a7c9.png)
+  ![image](https://user-images.githubusercontent.com/35757620/209932533-6ddb4c29-3c9b-423f-b622-8c7c5e8f059d.png)
+  ![image](https://user-images.githubusercontent.com/35757620/209932572-cc2c4145-eca1-4815-a064-d16cb05ab28d.png)
+  ![image](https://user-images.githubusercontent.com/35757620/209932603-5c790ec9-4162-47c6-b0e9-12db0294f90c.png)
+  처음 코드를 작성할 때는 DataIntegrityViolationException 예외를 처리하였지만 코드를 보니 SQLIntegrityConstraintViolationException 예외를 처리해야 한다는 것을 알게되었고 수정을 해보았지만
+  ![image](https://user-images.githubusercontent.com/35757620/209933018-2329f802-f935-438f-a6b7-eca1790f8a8d.png)
+  
+
+
+
 
