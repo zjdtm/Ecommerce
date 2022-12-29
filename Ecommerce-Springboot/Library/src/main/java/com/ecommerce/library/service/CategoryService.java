@@ -14,4 +14,6 @@ public interface CategoryService {
     void deleteById(Long id);
     void enabledById(Long id);
 
+    List<Category> findAllByActivated();
+
 }
