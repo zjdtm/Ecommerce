@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Ecommerce-Springboot/Admin/Admin.iml" filepath="$PROJECT_DIR$/Ecommerce-Springboot/Admin/Admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ecommerce-Springboot/Customer/Customer.iml" filepath="$PROJECT_DIR$/Ecommerce-Springboot/Customer/Customer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Ecommerce.iml" filepath="$PROJECT_DIR$/.idea/Ecommerce.iml" />
       <module fileurl="file://$PROJECT_DIR$/Ecommerce-Springboot/Ecommerce-Springboot.iml" filepath="$PROJECT_DIR$/Ecommerce-Springboot/Ecommerce-Springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/Ecommerce-Springboot/Library/Library.iml" filepath="$PROJECT_DIR$/Ecommerce-Springboot/Library/Library.iml" />
