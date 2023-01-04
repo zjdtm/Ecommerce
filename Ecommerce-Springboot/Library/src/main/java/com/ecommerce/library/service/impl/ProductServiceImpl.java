@@ -26,6 +26,8 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ImageUpload imageUpload;
 
+
+    /* Admin */
     @Override
     public List<ProductDto> findAll() {
         List<Product> products = repo.findAll();
@@ -162,5 +164,16 @@ public class ProductServiceImpl implements ProductService {
             productDtoList.add(productDto);
         }
         return productDtoList;
+    }
+
+    /* Customer */
+    @Override
+    public List<Product> getAllProducts() {
+        return repo.getAllProducts();
+    }
+
+    @Override
+    public List<Product> listViewProducts() {
+        return repo.listViewProducts();
     }
 }
