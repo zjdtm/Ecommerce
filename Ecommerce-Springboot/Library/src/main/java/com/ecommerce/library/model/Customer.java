@@ -33,6 +33,8 @@ public class Customer {
 
     private String address;
 
+    private String password;
+
     @Lob
     @Column(name = "image", columnDefinition = "MEDIUMBLOB")
     private String image;
