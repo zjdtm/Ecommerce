@@ -103,7 +103,10 @@
                             </div>
                             <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men"
                                  data-children=".sub-men" th:each="category : ${categories}">
-                                <a th:href = "@{/products-in-category/{id}(id = ${category.categoryId})}" class="list-group-item list-group-item-action">[[${category.categoryName}]] <small class="text-muted">([[${category.numberOfProduct}]])</small></a>
+                                <a th:href="@{/products-in-category/{id}(id=${category.categoryId})}" class="list-group-item list-group-item-action">
+                                    [[${category.categoryName}]]
+                                    <small class="text-muted">([[${category.numberOfProduct}]])</small>
+                                </a>
                             </div>
                         </div>
                         <div class="filter-price-left">
@@ -119,9 +122,7 @@
 
     <!-- Start Feed  -->
     <div th:replace="~{fragments::instagram-box}"></div>
-
     <!-- End Feed  -->
-
 
     <!-- Start Footer  -->
     <footer th:replace="~{fragments::footer}"></footer>
