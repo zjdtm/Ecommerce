@@ -42,8 +42,8 @@ public class CustomerConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-                .requestMatchers("/*").permitAll()
-                .requestMatchers("/customer/*").hasAuthority("CUSTOMER")
+                .requestMatchers("/**").permitAll()
+                .requestMatchers("/customer/**").hasAuthority("CUSTOMER")
                 .and()
                 .formLogin()
                 .loginPage("/login")
