@@ -17,36 +17,59 @@
 <div th:replace="~{fragments :: top-search}"></div>
 <!-- End Top Search -->
 
-<section id="register-form">
+<section id="register-form" class="d-flex justify-content-center">
   <div class="noi-dung">
     <div class="form">
-      <h2>Register</h2>
+      <h2 class="text-center">Register</h2>
       <form action="">
         <div class="input-form">
           <!-- <span>User name</span> -->
-          <input type="text" placeholder="Name" name="">
+          <div class="form-outline mb-4">
+            <input type="email" id="form2Example1" class="form-control" />
+            <label class="form-label" for="form2Example1">Name</label>
+          </div>
         </div>
         <div class="input-form">
           <!-- <span>Password</span> -->
-          <input type="password" placeholder="Password" name="">
+          <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" class="form-control" />
+            <label class="form-label" for="form2Example2">Password</label>
+          </div>
         </div>
         <div class="input-form">
           <!-- <span>Password</span> -->
-          <input type="password" placeholder="Verify password" name="">
+          <div class="form-outline mb-4">
+            <input type="password" id="form2Example3" class="form-control" />
+            <label class="form-label" for="form2Example3">Verify password</label>
+          </div>
         </div>
         <div class="input-form">
-          <p>Do You Already Have An Account ? <a href="login.html"> Sign in now </a></p>
+          <p>Do You Already Have An Account ? <a th:href="@{/login}"> Sign in now </a></p>
         </div>
-        <div class="input-form">
-          <input type="submit" value="Sign up">
-        </div>
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary btn-block mb-4">Sign Up</button>
       </form>
-      <h3>Log In With Social Network</h3>
-      <ul class="icon-dang-nhap">
-        <li><i class="fab fa-facebook-f"></i></i></li>
-        <li><i class="fab fa-google"></i></li>
-        <li><i class="fab fa-weibo"></i></li>
-      </ul>
+
+      <div class="text-center">
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-google"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-twitter"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-github"></i>
+        </button>
+
+        <p>Not a member? <a th:href="@{/register}">Register</a></p>
+
+      </div>
     </div>
   </div>
 

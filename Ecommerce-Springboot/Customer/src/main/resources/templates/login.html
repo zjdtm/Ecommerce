@@ -2,30 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <!-- Basic -->
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Freshshop - Ecommerce Bootstrap 4 HTML Template</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- Site CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Responsive CSS -->
-  <link rel="stylesheet" href="css/responsive.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/custom.css">
-
-</head>
+<head th:replace="~{fragments :: head}"></head>
 
 <body>
 <!-- Start Main Top -->
@@ -40,15 +17,13 @@
 <!-- End Main Top -->
 
 <!-- Start Top Search -->
-<div th:replace="~{fragments::top-search}">
-</div>
+<div th:replace="~{fragments::top-search}"></div>
 <!-- End Top Search -->
 
-
-<section id="login-form">
+<section id="login-form" class="d-flex justify-content-center">
   <div class="noi-dung">
     <div class="form">
-      <h2>Log In</h2>
+      <h2 class="text-center">Log In</h2>
       <div th:if = "${param.error}" class="text-center alert alert-warning">
         <p>Invalid username or password</p>
       </div>
@@ -57,28 +32,62 @@
         <p>You have been logged out</p>
       </div>
 
+      <!-- new -->
       <form th:action="@{/do-login}" method="post">
-        <div class="input-form">
-          <!-- <span>User name</span> -->
-          <input type="text" placeholder="Name" name="username">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="form2Example1" class="form-control" />
+          <label class="form-label" for="form2Example1">Name</label>
         </div>
-        <div class="input-form">
-          <!-- <span>Password</span> -->
-          <input type="password" placeholder="Password" name="password">
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="form2Example2" class="form-control" />
+          <label class="form-label" for="form2Example2">Password</label>
         </div>
-        <div class="input-form">
-          <input type="submit" value="Log In">
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+              <label class="form-check-label" for="form2Example31"> Remember me </label>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Forgot password?</a>
+          </div>
         </div>
-        <div class="input-form">
-          <p>Do You Already Have An Account ? <a th:href="@{/register}">Sign up now </a></p>
+
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+        <!-- Register buttons -->
+        <div class="text-center">
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-facebook-f"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-google"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-twitter"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-github"></i>
+          </button>
+
+          <p>Not a member? <a th:href="@{/register}">Register</a></p>
+
         </div>
       </form>
-      <h3>Log In With Social Network</h3>
-      <ul class="icon-dang-nhap">
-        <li><i class="fab fa-facebook-f"></i></i></li>
-        <li><i class="fab fa-google"></i></li>
-        <li><i class="fab fa-weibo"></i></li>
-      </ul>
+      <!-- end new -->
     </div>
   </div>
 
