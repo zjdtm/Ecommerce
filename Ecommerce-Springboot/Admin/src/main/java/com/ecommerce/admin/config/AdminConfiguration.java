@@ -42,7 +42,6 @@ public class AdminConfiguration{
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
         http.authorizeHttpRequests()
                 .requestMatchers("/**").permitAll()
                 .requestMatchers("/admin/**")
@@ -52,7 +51,6 @@ public class AdminConfiguration{
                 .loginPage("/login")
                 .loginProcessingUrl("/do-login")
                 .defaultSuccessUrl("/index")
-                .permitAll()
                 .and()
                 .logout()
                 .invalidateHttpSession(true)

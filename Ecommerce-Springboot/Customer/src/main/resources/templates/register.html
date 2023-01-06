@@ -21,33 +21,68 @@
   <div class="noi-dung">
     <div class="form">
       <h2 class="text-center">Register</h2>
-      <form action="">
+      <div th:if="${error}" class="text-center alert-danger">
+        <p th:text="${error}"></p>
+      </div>
+      <div th:if="${username}" class="text-center alert-warning">
+        <p th:text="${username}"></p>
+      </div>
+      <div th:if="${password}" class="text-center alert-warning">
+        <p th:text="${password}"></p>
+      </div>
+      <div th:if="${success}" class="text-center alert-success">
+        <p th:text="${success}"></p>
+      </div>
+      <form th:action="@{/do-register}" method="post" th:object="${customerDto}">
         <div class="input-form">
           <!-- <span>User name</span> -->
           <div class="form-outline mb-4">
-            <input type="email" id="form2Example1" class="form-control" />
-            <label class="form-label" for="form2Example1">Name</label>
+            <label class="form-label" for="form2Example1">First Name</label>
+            <input type="text" th:field="*{firstName}" id="form2Example1" class="form-control" />
+          </div>
+        </div>
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('FirstName')}"
+             th:errors="*{firstName}"
+        ></div>
+        <div class="input-form">
+          <!-- <span>User name</span> -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">Last Name</label>
+            <input type="text" th:field="*{lastName}" id="form2Example2" class="form-control" />
+          </div>
+        </div>
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}"
+             th:errors="*{lastName}"
+        ></div>
+        <div class="input-form">
+          <!-- <span>Password</span> -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example4">Username</label>
+            <input type="email" th:field="*{username}" id="form2Example4" class="form-control" />
           </div>
         </div>
         <div class="input-form">
           <!-- <span>Password</span> -->
           <div class="form-outline mb-4">
-            <input type="password" id="form2Example2" class="form-control" />
-            <label class="form-label" for="form2Example2">Password</label>
+            <label class="form-label" for="form2Example3">Password</label>
+            <input type="password" th:field="*{password}" id="form2Example3" class="form-control" />
           </div>
         </div>
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('password')}"
+             th:errors="*{password}"
+        ></div>
         <div class="input-form">
           <!-- <span>Password</span> -->
           <div class="form-outline mb-4">
-            <input type="password" id="form2Example3" class="form-control" />
-            <label class="form-label" for="form2Example3">Verify password</label>
+            <label class="form-label" for="form2Example5">Verify password</label>
+            <input type="password" th:field="*{repeatPassword}" id="form2Example5" class="form-control" />
           </div>
         </div>
         <div class="input-form">
           <p>Do You Already Have An Account ? <a th:href="@{/login}"> Sign in now </a></p>
         </div>
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block mb-4">Sign Up</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
       </form>
 
       <div class="text-center">

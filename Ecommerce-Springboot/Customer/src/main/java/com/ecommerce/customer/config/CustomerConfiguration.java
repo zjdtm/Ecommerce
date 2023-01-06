@@ -43,7 +43,8 @@ public class CustomerConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
                 .requestMatchers("/**").permitAll()
-                .requestMatchers("/customer/**").hasAuthority("CUSTOMER")
+                .requestMatchers("/customer/**")
+                .hasAuthority("CUSTOMER")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -54,7 +55,7 @@ public class CustomerConfiguration {
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/logout?logout")
+                .logoutSuccessUrl("/login?logout")
                 .permitAll();
 
         return http.build();

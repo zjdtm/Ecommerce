@@ -6,14 +6,11 @@
 
 <body>
 <!-- Start Main Top -->
-<div th:replace="~{fragments::main-top}">
-
-</div>
+<div th:replace="~{fragments::main-top}"></div>
 <!-- End Main Top -->
 
 <!-- Start Main Top -->
-<header th:replace="~{fragments::main-header}">
-</header>
+<header th:replace="~{fragments::main-header}"></header>
 <!-- End Main Top -->
 
 <!-- Start Top Search -->
@@ -27,23 +24,22 @@
       <div th:if = "${param.error}" class="text-center alert alert-warning">
         <p>Invalid username or password</p>
       </div>
-
       <div th:if = "${param.logout}" class="text-center alert alert-success">
         <p>You have been logged out</p>
       </div>
-
       <!-- new -->
       <form th:action="@{/do-login}" method="post">
         <!-- Email input -->
         <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example1">Username</label>
           <input type="email" id="form2Example1" class="form-control" />
-          <label class="form-label" for="form2Example1">Name</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input type="password" id="form2Example2" class="form-control" />
           <label class="form-label" for="form2Example2">Password</label>
+          <input type="password" id="form2Example2" class="form-control" />
+
         </div>
 
         <!-- 2 column grid layout for inline styling -->
@@ -63,7 +59,7 @@
         </div>
 
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
         <!-- Register buttons -->
         <div class="text-center">
