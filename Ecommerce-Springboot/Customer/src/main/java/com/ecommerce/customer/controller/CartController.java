@@ -7,6 +7,7 @@ import com.ecommerce.library.service.CustomerService;
 import com.ecommerce.library.service.ProductService;
 import com.ecommerce.library.service.ShoppingCartService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,7 @@ public class CartController {
     private ProductService productService;
 
     @GetMapping("/cart")
-    public String cart(Model model, Principal principal){
+    public String cart(Model model, Principal principal, HttpSession session){
         if(principal == null){
             return "redirect:/login";
         }
@@ -37,7 +38,9 @@ public class CartController {
         if(shoppingCart == null){
             model.addAttribute("check", "No item in your cart");
         }
+        session.setAttribute("totalItems", shoppingCart.getTotalItems());
         model.addAttribute("shoppingCart", shoppingCart);
+        model.addAttribute("subTotal", shoppingCart.getTotalPrices());
         return "cart";
     }
 
