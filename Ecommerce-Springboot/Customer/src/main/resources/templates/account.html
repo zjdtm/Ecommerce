@@ -21,59 +21,63 @@
 </div>
 <!-- End Top Search -->
 
-<div class="mainDiv d-flex justify-content-center">
+<div class="contact-box-main d-flex justify-content-center">
     <div class="cardStyle">
         <div class="text alert alert-warning" th:if = "${error}">
             <p th:text="${error}"></p>
         </div>
 
-        <form th:action="@{/update-infor}" method="put" name="signupForm" id="signupForm" th:object="${customer}">
+        <form th:action="@{/update-infor}" class="contact-form-right" method="put" name="signupForm" id="signupForm" th:object="${customer}">
 
             <img src="" id="signupLogo"/>
 
-            <h2 class="formTitle">
+            <h2 class="form-title mb-4 text-center">
                 <i>Personal Information</i>
             </h2>
 
-            <div class="">
-                <label class="inputLabel" for="firstname"> First name * </label>
-                <input type="text" th:field = "*{firstName}"  id="firstname" name="firstname" readonly>
+            <div>
+                <div class="col-md-12">
+                    <label class="inputLabel mr-5" for="firstname"> First name *</label>
+                    <input type="text" th:field = "*{firstName}"  id="firstname" name="firstname" readonly>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="inputLabel mr-5" for="lastname">Last name *</label>
+                    <input type="text" id="lastname" th:field = "*{lastName}" name="lastname" readonly>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="inputLabel mr-5" for="username">User name *</label>
+                    <input type="text" id="username" th:field = "*{username}" name="username" readonly>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="inputLabel mr-4" for="phoneNumber">Phone number *</label>
+                    <input type="number" id="phoneNumber" th:field = "*{phoneNumber}" name="phoneNumber">
+                </div>
+
+                <div class="col-md-12">
+                    <label class="inputLabel mr-5" for="address">Address *</label>
+                    <input type="text" id="address" th:field = "*{address}" name="address">
+                </div>
+
+                <div class="col-md-12">
+                    <label class="inputLabel mr-5" for="city">City *</label>
+                    <input type="text" id="city" th:field = "*{city}" name="city">
+                </div>
+
+                <div class="col-md-12">
+                    <label class="inputLabel mr-5" for="country">Country *</label>
+                    <input type="text" id="country" th:field = "*{country}" name="country">
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <div class="form-group">
+                        <input type="submit" value="SAVE" class="btn btn-primary">
+                        <div class="submit-button"></div>
+                    </div>
+                </div>
             </div>
-
-            <div class="inputDiv">
-                <label class="inputLabel" for="lastname">Last name *</label>
-                <input type="text" id="lastname" th:field = "*{lastName}" name="lastname" readonly>
-            </div>
-
-            <div class="inputDiv">
-                <label class="inputLabel" for="username">User name *</label>
-                <input type="text" id="username" th:field = "*{username}" name="username" readonly>
-            </div>
-
-            <div class="inputDiv">
-                <label class="inputLabel" for="phoneNumber">Phone number *</label>
-                <input type="number" id="phoneNumber" th:field = "*{phoneNumber}" name="phoneNumber">
-            </div>
-
-            <div class="inputDiv">
-                <label class="inputLabel" for="address">Address *</label>
-                <input type="text" id="address" th:field = "*{address}" name="address">
-            </div>
-
-            <div class="inputDiv">
-                <label class="inputLabel" for="city">City *</label>
-                <input type="text" id="city" th:field = "*{city}" name="city">
-            </div>
-
-            <div class="inputDiv">
-                <label class="inputLabel" for="country">Country *</label>
-                <input type="text" id="country" th:field = "*{country}" name="country">
-            </div>
-
-            <button type="submit" id="submitButton" class="submit-button">
-                <span>Save</span>
-            </button>
-
         </form>
     </div>
 </div>

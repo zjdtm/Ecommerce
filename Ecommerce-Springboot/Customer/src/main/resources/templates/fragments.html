@@ -44,14 +44,6 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="login-box">
-                    <select id="" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">
-                        <option th:text="${session.username != null} ? ${session.username} : 'Authentication'"></option>
-                        <option th:if = "${session.username == null}" value="http://localhost:8020/shop/login">Sign In</option>
-                        <option th:if = "${session.username != null}" value="http://localhost:8020/shop/logout">Log out</option>
-                        <option value="http://localhost:8020/shop/register" >Sign Up</option>
-                    </select>
-                </div>
                 <div class="text-slid-box">
                     <div id="offer-box" class="carouselTicker">
                         <ul class="offer-box">
@@ -113,13 +105,22 @@
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Shop</a>
                         <ul class="dropdown-menu">
                             <li><a th:href="@{/products}">Shop Detail</a></li>
-                            <li><a href="product-detail.html">Product Detail</a></li>
-                            <li><a th:href="@{/cart.html}">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a th:href="@{/cart}">Cart</a></li>
+                            <li><a th:href="@{/check-out}">Checkout</a></li>
                             <li><a th:href="@{/account}">My Account</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                    <li th:if="${session.username == null}" class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
+                    <li><a class="nav-link" th:href="@{/register}">Register</a></li>
+                    <li th:if="${session.username != null}" class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+                    <!--                    <div class="login-box">-->
+<!--                        <select id="" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">-->
+<!--                            <option th:text="${session.username != null} ? ${session.username} : 'Authentication'"></option>-->
+<!--                            <option th:if = "${session.username == null}" value="http://localhost:8020/shop/login">Sign In</option>-->
+<!--                            <option th:if = "${session.username != null}" value="http://localhost:8020/shop/logout">Log out</option>-->
+<!--                            <option value="http://localhost:8020/shop/register" >Sign Up</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
