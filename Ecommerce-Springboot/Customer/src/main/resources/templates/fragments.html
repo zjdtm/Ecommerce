@@ -108,19 +108,12 @@
                             <li><a th:href="@{/cart}">Cart</a></li>
                             <li><a th:href="@{/check-out}">Checkout</a></li>
                             <li><a th:href="@{/account}">My Account</a></li>
+                            <li><a th:href="@{/order}">My Order</a></li>
                         </ul>
                     </li>
                     <li th:if="${session.username == null}" class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
                     <li><a class="nav-link" th:href="@{/register}">Register</a></li>
                     <li th:if="${session.username != null}" class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
-                    <!--                    <div class="login-box">-->
-<!--                        <select id="" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">-->
-<!--                            <option th:text="${session.username != null} ? ${session.username} : 'Authentication'"></option>-->
-<!--                            <option th:if = "${session.username == null}" value="http://localhost:8020/shop/login">Sign In</option>-->
-<!--                            <option th:if = "${session.username != null}" value="http://localhost:8020/shop/logout">Log out</option>-->
-<!--                            <option value="http://localhost:8020/shop/register" >Sign Up</option>-->
-<!--                        </select>-->
-<!--                    </div>-->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
